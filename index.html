@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAVENI - Links das Aulas</title>
+    <style>
+        :root {
+            --meet-blue: #0c8935; /* Azul esverdeado principal */
+            --meet-green: #c39e26; /* Verde do Meet */
+            --meet-light-blue: #b7af40; /* Azul claro */
+            --meet-dark-blue: #ff0000; /* Azul escuro */
+            --meet-accent: #e1ff00; /* Destaque */
+            --meet-white: #FFFFFF; /* Branco */
+            --meet-text: #000000; /* Texto escuro */
+            --meet-light-gray: #ECEFF1; /* Fundo claro */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Google Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--meet-light-gray);
+            color: var(--meet-text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--meet-blue), var(--meet-green));
+            color: var(--meet-white);
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-img {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+        
+        .classes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .class-card {
+            background-color: var(--meet-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--meet-light-blue);
+        }
+        
+        .class-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .class-header {
+            background: linear-gradient(135deg, var(--meet-blue), var(--meet-accent));
+            color: var(--meet-white);
+            padding: 20px;
+            border-bottom: 3px solid var(--meet-green);
+        }
+        
+        .class-title {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+        
+        .class-professor {
+            font-weight: 500;
+            opacity: 0.9;
+        }
+        
+        .class-details {
+            padding: 20px;
+        }
+        
+        .class-time {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: var(--meet-dark-blue);
+            font-weight: 500;
+        }
+        
+        .class-time i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+            color: var(--meet-green);
+        }
+        
+        .class-link {
+            display: block;
+            background: linear-gradient(to right, var(--meet-green), var(--meet-blue));
+            color: var(--meet-white);
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            border: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .class-link:hover {
+            background: linear-gradient(to right, var(--meet-blue), var(--meet-dark-blue));
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .class-link i {
+            margin-right: 8px;
+        }
+        
+        .reminder {
+            background-color: var(--meet-light-blue);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 40px;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--meet-green);
+            color: var(--meet-text);
+        }
+        
+        .reminder i {
+            color: var(--meet-blue);
+            margin-right: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: var(--meet-text);
+            opacity: 0.8;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--meet-light-blue);
+        }
+        
+        @media (max-width: 768px) {
+            .classes-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-img {
+                height: 60px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <!-- Imagem do logo FAVENI -->
+                <img src="LOGOMARCA_CENTRO.png" alt="FAVENI - Centro Universitário" class="logo-img">
+                <div class="subtitle">CENTRO UNIVERSITÁRIO</div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="classes-container">
+            <!-- Aula 1 -->
+            <div class="class-card">
+                <div class="class-header">
+                    <h2 class="class-title">Preparatório OAB e Concursos</h2>
+                    <div class="class-professor">Sábado</div>
+                </div>
+                <div class="class-details">
+                    <div class="class-time">
+                        <i class="far fa-clock"></i>
+                        <span>9:00 – 10:00am</span>
+                    </div>
+                    <a href="https://meet.google.com/gck-cdso-cbz" class="class-link" target="_blank">
+                        <i class="fas fa-video"></i> Acessar Aula
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Aula 2 -->
+            <div class="class-card">
+                <div class="class-header">
+                    <h2 class="class-title">Ciência Política e TGE</h2>
+                    <div class="class-professor">Prof. Ricardo - Quinta-feira</div>
+                </div>
+                <div class="class-details">
+                    <div class="class-time">
+                        <i class="far fa-clock"></i>
+                        <span>7:00 – 8:20pm</span>
+                    </div>
+                    <a href="https://meet.google.com/jyz-coah-jbe" class="class-link" target="_blank">
+                        <i class="fas fa-video"></i> Acessar Aula
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Aula 3 -->
+            <div class="class-card">
+                <div class="class-header">
+                    <h2 class="class-title">Introdução ao Estudo do Direito</h2>
+                    <div class="class-professor">Prof. Ricardo - Quinta-feira</div>
+                </div>
+                <div class="class-details">
+                    <div class="class-time">
+                        <i class="far fa-clock"></i>
+                        <span>Horário a confirmar</span>
+                    </div>
+                    <a href="#" class="class-link" target="_blank">
+                        <i class="fas fa-video"></i> Link em breve
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Aula 4 -->
+            <div class="class-card">
+                <div class="class-header">
+                    <h2 class="class-title">Filosofia do Direito</h2>
+                    <div class="class-professor">Prof. Moacir - Sexta-feira</div>
+                </div>
+                <div class="class-details">
+                    <div class="class-time">
+                        <i class="far fa-clock"></i>
+                        <span>7:00 – 8:20pm</span>
+                    </div>
+                    <a href="https://meet.google.com/uef-pmkk-btd" class="class-link" target="_blank">
+                        <i class="fas fa-video"></i> Acessar Aula
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Aula 5 -->
+            <div class="class-card">
+                <div class="class-header">
+                    <h2 class="class-title">Português Instrumental</h2>
+                    <div class="class-professor">Profª Bruna - Sexta-feira</div>
+                </div>
+                <div class="class-details">
+                    <div class="class-time">
+                        <i class="far fa-clock"></i>
+                        <span>8:40 – 10:00pm</span>
+                    </div>
+                    <a href="https://meet.google.com/ddr-unui-ogf" class="class-link" target="_blank">
+                        <i class="fas fa-video"></i> Acessar Aula
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="reminder">
+            <i class="fas fa-info-circle"></i> Lembrete: Acessem as aulas utilizando seus e-mails institucionais.
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 FAVENI - Centro Universitário. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
